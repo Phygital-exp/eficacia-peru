@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eficacia</title>
+  
+  <link rel="icon" type="image/png" href="https://s3.amazonaws.com/botgen/Uploads/eficacialogo_1747927498.png" />
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    #pantallaInicio {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #botonPlay {
+      padding: 1em 2em;
+      font-size: 1.25rem;
+      background: #00ffc3;
+      color: black;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #botonPlay:hover {
+      transform: scale(1.05);
+    }
+
+    video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="pantallaInicio">
+    <h1 style="color:white; margin-bottom: 1rem;">Presiona para activar el sonido</h1>
+    <button id="botonPlay">🔊 Reproducir con sonido</button>
+  </div>
+
+  <video id="miVideo" autoplay loop muted playsinline>
+    <source src="https://s3.amazonaws.com/botgen/Uploads/videoperu_1747927298.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5.
+  </video>
+
+  <script>
+    document.getElementById('botonPlay').addEventListener('click', () => {
+      const video = document.getElementById('miVideo');
+      video.muted = false;
+      video.play();
+      document.getElementById('pantallaInicio').style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
